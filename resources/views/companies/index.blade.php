@@ -21,7 +21,7 @@
             @foreach($companies as $company)
                 <tr>
                    <td>{{ $company->id }}</td>
-                   <td><img src="{{ asset('storage/$company->logo') }}"></td>
+                   <td><img src="{{ asset("storage/images/$company->logo") }}"></td>
                    <td>{{ $company->name }}</td>
                    <td>{{ $company->email }}</td>
                    <td>

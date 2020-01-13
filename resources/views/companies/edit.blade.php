@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="container">
-    <form method="POST" action="/companies/{{ $company->id }}">
+    <form method="POST" action="/companies/{{ $company->id }}" enctype="multipart/form-data">
         @csrf
         {{ method_field('PATCH') }}
         <div class="form-group row">

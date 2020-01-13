@@ -32,27 +32,34 @@ class CompanyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     * @param Company $company
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Company $company)
     {
-        Company::create($request->validate([
+        $request->validate([
             'name' => ['required', 'min:3'],
             'email' => ['email', 'unique:companies,email'],
-            'logo' => ['nullable'],
-            // 'logo' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048', 'dimensions:min_height=100', 'dimensions:min_width=100'],
+            'logo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048', 'dimensions:min_height=100', 'dimensions:min_width=100', 'dimensions:max_height=200', 'dimensions:max_width=200'],
             'website' => ['nullable']
-        ]));
-        // if($request->hasFile('logo')){
-        //     $filenameWithExt = $request->file('logo')->getClientOriginalName();
-        //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        //     $extension = $request->file('logo')->getClientOriginalExtension();
-        //     $filenameToStore = $filename.'_'.time().'.'.$extension;
-        //     $path = $request->file('logo')->storeAs('public/images', $filenameToStore);
-        // }
-   
-        // $request->logo = $filenameToStore;
+        ]);
+         if($request->hasFile('logo')){
+             $filenameWithExt = $request->file('logo')->getClientOriginalName();
+             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+             $extension = $request->file('logo')->getClientOriginalExtension();
+             $filenameToStore = $filename.'_'.time().'.'.$extension;
+             $request->file('logo')->storeAs('public/images', $filenameToStore);
+             $company->logo = $filenameToStore;
+         } else {
+             $filenameToStore = 'noimage.jpg';
+         }
+
+         $company->name = request('name');
+         $company->email = request('email');
+         $company->logo = $filenameToStore;
+         $company->website = request('website');
+         $company->save();
 
         return redirect('companies')->with('success', 'Company created!');
     }
@@ -89,13 +96,29 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        $company->update($request->validate([
+        $request->validate([
             'name' => ['required', 'min:3'],
             'email' => ['email', 'unique:companies,email'],
-            'logo' => ['nullable'],
-            // 'logo' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048', 'dimensions:min_height=100', 'dimensions:min_width=100'],
+            'logo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048', 'dimensions:min_height=100', 'dimensions:min_width=100', 'dimensions:max_height=200', 'dimensions:max_width=200'],
             'website' => ['nullable']
-        ]));
+        ]);
+        if($request->hasFile('logo')){
+            $filenameWithExt = $request->file('logo')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('logo')->getClientOriginalExtension();
+            $filenameToStore = $filename.'_'.time().'.'.$extension;
+            $request->file('logo')->storeAs('public/images', $filenameToStore);
+            $company->logo = $filenameToStore;
+        } else {
+            $filenameToStore = 'noimage.jpg';
+        }
+
+        $company->name = request('name');
+        $company->email = request('email');
+        $company->logo = $filenameToStore;
+        $company->website = request('website');
+        $company->update();
+
         return redirect('companies')->with('success', 'Company updated!');
     }
 
