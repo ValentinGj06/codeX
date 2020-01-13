@@ -23,7 +23,7 @@
         <div class="form-group row">
             <label for="logo" class="col-sm-2 col-form-label">Logo</label>
             <div class="col-sm-3">
-                <input type="file" class="form-control-file" class="form-control" name="logo" value="{{ old('logo') }}">
+                <input type="file" class="form-control form-control-file" name="logo" value="{{ old('logo') }}">
             </div>
         </div>
         <div class="form-group row">
