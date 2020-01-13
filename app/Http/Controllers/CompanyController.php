@@ -98,7 +98,7 @@ class CompanyController extends Controller
     {
         $request->validate([
             'name' => ['required', 'min:3'],
-            'email' => ['email', 'unique:companies,email'],
+            'email' => ['email'/*, 'unique:companies,email'*/],
             'logo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048', 'dimensions:min_height=100', 'dimensions:min_width=100', 'dimensions:max_height=200', 'dimensions:max_width=200'],
             'website' => ['nullable']
         ]);
