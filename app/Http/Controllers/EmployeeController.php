@@ -15,7 +15,10 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::paginate(10);
+        $employees = Employee::with('company')->get();
+//        $employees = Employee::all();
+//        dd($employees);
+
         return view ('employees.index')->with('employees', $employees);    
     }
 
@@ -55,8 +58,9 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        // $employee = $company->employee()->paginate(1);
-        return view('employees.show', compact('employee'));
+        $company = $employee->company;
+//        dd($employee, $company);
+        return view('employees.show', compact('employee', 'company'));
     }
 
     /**
@@ -91,8 +95,9 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Employee  $employee
+     * @param  \App\Employee $employee
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Employee $employee)
     {

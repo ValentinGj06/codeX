@@ -10,6 +10,7 @@
          <thead>
          <tr>
             <th>ID</th>
+            <th>Company</th>
             <th>Name</th>
             <th>Email</th>
             <th>Actions</th>
@@ -19,6 +20,7 @@
             @foreach($employees as $employee)
                 <tr>
                    <td>{{ $employee->id }}</td>
+                   <td>{{ $employee->company->name }}</td>
                    <td>{{ $employee->first_name }}</td>
                    <td>{{ $employee->email }}</td>
                    <td>
@@ -30,5 +32,5 @@
             @endforeach
          </tbody>
       </table>
-      {{ $employees->links() }}
+      {{--{{ $employees->links() }}--}}
 @endsection
