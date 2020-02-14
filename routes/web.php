@@ -38,9 +38,3 @@ Route::get('/employees/{employee}/edit', 'EmployeeController@edit')->name('edit'
 Route::patch('/employees/{employee}', 'EmployeeController@update')->name('update');
 Route::delete('/employees/{employee}', 'EmployeeController@destroy')->name('destroy');
 Route::get('/employees/{employee}/delete', 'EmployeeController@destroy')->name('delete');
-
-
-
-
-// Employees routes
-Route::get('/employees', 'EmployeeController@index')->name('employees');

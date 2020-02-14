@@ -9,9 +9,9 @@
 	/* Sidebar */
 #sidebar-wrapper{
   z-index:1;
-  position: absolute;
+  position: fixed;
   width:0;
-  height:100%;
+  height:100vh;
   overflow-y:hidden;
   background: #382525;
   opacity:0.9;
@@ -73,6 +73,7 @@
 <!-- Sidebar -->
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">
+    <div id="logo"><a class="navbar-brand text-color" href="/home"><img src="{{ asset('img/logo.png') }}"></a></div>  
     <li><a class="navbar-brand text-color" href="/home">Home</a></li>
     <li><a class="nav-item nav-link" href="/companies/create">Add Company</a></li>
     <li><a class="nav-item nav-link" href="/companies">Browse Companies</a></li>

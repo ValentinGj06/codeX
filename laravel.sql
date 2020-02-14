@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2020 at 11:46 PM
+-- Generation Time: Feb 14, 2020 at 05:16 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -43,7 +43,8 @@ CREATE TABLE `companies` (
 --
 
 INSERT INTO `companies` (`id`, `name`, `email`, `logo`, `website`, `created_at`, `updated_at`) VALUES
-(2, 'Some Company', 'some@email.com', NULL, 'some web', '2020-01-12 09:30:57', '2020-01-12 09:30:57'),
+(1, 'First Company', 'firstcompany@email.com', 'nodeJS_1581696910.png', 'www.first.com', '2020-02-14 15:15:11', '2020-02-14 15:15:11'),
+(2, 'Some Company', 'some@email.com', 'noimage.jpg', 'some web', '2020-01-12 09:30:57', '2020-01-13 20:16:30'),
 (3, 'Another Company', 'another@email.com', NULL, 'website', '2020-01-12 11:54:21', '2020-01-12 18:33:41'),
 (4, '3rd Company', 'email@for.com', NULL, 'www.someweb.com', '2020-01-12 18:09:06', '2020-01-12 18:33:48'),
 (6, '4rd Company', 'someemail@for.com', NULL, 'www.somewebsite.com', '2020-01-12 18:17:03', '2020-01-12 18:35:40'),
@@ -57,7 +58,9 @@ INSERT INTO `companies` (`id`, `name`, `email`, `logo`, `website`, `created_at`,
 (14, 'Login Corp', 'login@log.com', '61giltHzlDL._SY450_.jpg', 'www.log.com', '2020-01-12 18:48:32', '2020-01-12 18:48:32'),
 (15, 'Corporation', 'someOne@email.com', NULL, NULL, '2020-01-12 19:17:58', '2020-01-12 19:17:58'),
 (16, 'Nth Another Company', 'val.gjoki93@gmail.com', '61giltHzlDL._SY450_.jpg', NULL, '2020-01-12 21:06:14', '2020-01-12 21:06:14'),
-(23, '22Nth Another Company', 'aaal.gjok11i93@gmail.com', NULL, NULL, '2020-01-12 21:31:33', '2020-01-12 21:31:33');
+(23, '22Nth Another Company', 'aaal.gjok11i93@gmail.com', NULL, NULL, '2020-01-12 21:31:33', '2020-01-12 21:31:33'),
+(26, 'Crater', 'val@sa', 'C:\\xampp\\tmp\\phpD22.tmp', 'a', '2020-01-13 20:11:09', '2020-01-13 20:11:09'),
+(27, 'sdds', '12@as', 'logo_1578950172.png', NULL, '2020-01-13 20:16:12', '2020-01-13 20:16:12');
 
 -- --------------------------------------------------------
 
@@ -218,7 +221,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `employees`
